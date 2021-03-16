@@ -1,0 +1,19 @@
+#backgroundIntroImage{
+    background-image: url("../assets/images/intro-image.jpg");  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    padding-top: 47.3%;
+}
+
+#text {
+    z-index: 1;
+    position: absolute;
+    color: rgb(226, 226, 226);
+    font-family: "Harrington";
+    font-size: 110px;
+    font-weight: bold;
+    left: 13.5%;
+    top: 230px;
+    -webkit-text-stroke: 3px black;
+  }
