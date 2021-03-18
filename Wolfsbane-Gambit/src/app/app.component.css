@@ -1,12 +1,13 @@
-#backgroundIntroImage{
-    background-image: url("../assets/images/intro-image.jpg");  
+.backgroundIntroImage{
+    background-image: url("../assets/images/intro-image.jpg");
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-    padding-top: 47.3%;
 }
 
-#text {
+.introText {
     z-index: 1;
     position: absolute;
     color: rgb(226, 226, 226);
