@@ -7,17 +7,24 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { IntroPageComponent } from './intro-page/intro-page.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { ModalModule } from 'ngx-bootstrap/modal'
 
 import { environment } from '../environments/environment';
 
+//Animation Module
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AfterIntroTestPageComponent } from './after-intro-test-page/after-intro-test-page.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AfterIntroTestPageComponent,
+    IntroPageComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,8 @@ import { environment } from '../environments/environment';
     AngularFireStorageModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
