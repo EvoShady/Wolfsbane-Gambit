@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
     this.router.navigate(['introPage']);
     setTimeout(() => {
       this.router.navigate(['afterIntro']);
-    }, 6000)
+    }, 5500)
   }
-
+  
 }

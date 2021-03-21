@@ -1,20 +1,91 @@
 .backgroundIntroImage{
-    background-image: url("../assets/images/intro-image.jpg");
+    background-image: url("../../assets/images/intro-image.jpg");
+
+    z-index: 0;
     height: 100vh;
     width: 100vw;
     position: relative;
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .introText {
     z-index: 1;
     position: absolute;
+    
     color: rgb(226, 226, 226);
     font-family: "Harrington";
     font-size: 110px;
     font-weight: bold;
-    left: 19rem;
-    top: 40%;
     -webkit-text-stroke: 3px black;
+}
+
+.whiteStar{
+    background-image: url("../../assets/images/star-intro.png");
+
+    z-index: 2;
+    position: absolute;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.introTextAnimation{
+    animation: introTextApear 5s linear;
   }
+
+    @keyframes introTextApear {
+        from {
+            opacity: 0;
+        }
+        0% {
+            opacity: 0;
+        }
+        20% {
+            opacity: 0;
+        }
+        40% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        70% {
+            opacity: 1;
+        }
+        80%{
+            opacity: 0.5;
+        }
+        90%{
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+.whiteStarAnimation {
+    animation: resizeIntroStar 1.5s linear forwards;
+}
+
+    @keyframes resizeIntroStar {
+        from {
+            height: 0vh;
+            width: 0vw;
+        }
+        20% {
+            height: 0vh;
+            width: 0vw;
+        }
+        50% {
+            height: 100vh;
+            width: 100vw;
+        }
+        100% {
+            height: 0vh;
+            width: 0vw;
+        }
+    }
