@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyDhZyJS8fyu4h00dBKn4RrkMJ5U-MV7aSM",
-    authDomain: "wolfsbane-gambit.firebaseapp.com",
-    projectId: "wolfsbane-gambit",
-    storageBucket: "wolfsbane-gambit.appspot.com",
-    messagingSenderId: "376110911705",
-    appId: "1:376110911705:web:085588cdd3b55d2ff5aec8",
-    measurementId: "G-L06198J5WP"
+    apiKey: "AIzaSyAgGvf6TZiKmj8pQ5vqxATs7dGfoUQ4iZI",
+    authDomain: "wolfsbane-gambit-ec395.firebaseapp.com",
+    projectId: "wolfsbane-gambit-ec395",
+    storageBucket: "wolfsbane-gambit-ec395.appspot.com",
+    messagingSenderId: "579891873234",
+    appId: "1:579891873234:web:0cc69e3e46c1ce2be1340b",
+    measurementId: "G-5LSHLGQV4Y"
   }
 };
 
