@@ -1,9 +1,74 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Router, RouterOutlet } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { User } from '../models/user';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  private eventAuthError = new BehaviorSubject<string>("");
+  eventAuthError$ = this.eventAuthError.asObservable();
+  
+  newUser: User
+
+  constructor(
+    private afa: AngularFireAuth,
+    private afs: AngularFirestore,
+    private rt: Router 
+  ) { }
+
+  async login( email: string, password: string) {
+    await this.afa.signInWithEmailAndPassword(email, password)
+      .catch(error => {
+        this.eventAuthError.next(error);
+      })
+      .then(userCredential => {
+        if(userCredential) {
+          this.rt.navigate(['afterIntro']);
+        }
+      })
+  }
+
+  async createUser(user: User) {
+    await this.afa.createUserWithEmailAndPassword(user.email, user.password)
+      .then( userCredential => {
+        this.newUser = user;
+        userCredential.user.updateProfile( {
+          displayName: user.username
+        });
+
+        this.insertUserData(userCredential)
+          .then(() => {
+            this.rt.navigate(['afterIntro']);
+          });
+      })
+      .catch( error => {
+        this.eventAuthError.next(error);
+      });
+  }
+
+  insertUserData(userCredential: firebase.default.auth.UserCredential) {
+    return this.afs.doc(`Users/${userCredential.user.uid}`).set({
+      email: this.newUser.email,
+      username: this.newUser.username,
+      password: this.newUser.password,
+      level: 1
+    })
+  }
+
+  logout(){
+    this.afa.signOut();
+  }
+
+  prepareRoute(outlet: RouterOutlet){
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+    
+
+
 }

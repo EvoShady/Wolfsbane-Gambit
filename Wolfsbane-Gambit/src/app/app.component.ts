@@ -23,7 +23,7 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     this.router.navigate(['introPage']);
     setTimeout(() => {
-      this.router.navigate(['afterIntro']);
+      this.router.navigate(['login']);
     }, 5500)
   }
   
