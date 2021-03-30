@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore} from '@angular/fire/firestore';
 import { Router, RouterOutlet } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/user';
@@ -42,7 +42,7 @@ export class AuthService {
           displayName: user.username
         });
 
-        this.insertUserData(userCredential)
+        this.insertUserData()
           .then(() => {
             this.rt.navigate(['afterIntro']);
           });
@@ -52,10 +52,9 @@ export class AuthService {
       });
   }
 
-  insertUserData(userCredential: firebase.default.auth.UserCredential) {
-    return this.afs.doc(`Users/${userCredential.user.uid}`).set({
+  insertUserData() {
+    return this.afs.doc(`Users/${this.newUser.username}`).set({
       email: this.newUser.email,
-      username: this.newUser.username,
       password: this.newUser.password,
       level: 1
     })
@@ -68,7 +67,14 @@ export class AuthService {
   prepareRoute(outlet: RouterOutlet){
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
-    
+ 
+  
+  
+  
 
 
 }
+
+
+
+
