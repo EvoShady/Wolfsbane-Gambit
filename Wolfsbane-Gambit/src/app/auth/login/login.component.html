@@ -1,11 +1,34 @@
-<mat-form-field floatLabel='auto'>
-    <mat-label>Label</mat-label>
-    <input matInput >
-</mat-form-field>
-
-<div class="example-container">
-    <mat-form-field appearance="fill">
-      <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="pat@example.com">
-    </mat-form-field>
+<div class="row rt-4 surface">
+  <div class="col-12">
+    <h2>Login</h2>
   </div>
+  <form [formGroup]="userForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <mat-form-field appearance="legacy">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">     
+        <mat-error *ngIf="userForm.get('username').invalid">{{ getUsernameErrors() }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="legacy">
+        <mat-label>Password</mat-label>
+        <input  matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix 
+                (click)="hide = !hide" 
+                [attr.aria-label]="'Hide password'" 
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" 
+      type="submit"
+      [disabled]="userForm.invalid"
+      >Register</button>
+    </div>
+    <div class="link-format">
+      <a mat-stroked-button target="_blank" (click)="goToRegister()">Already have an account</a>
+    </div>
+  </form>
+</div>
