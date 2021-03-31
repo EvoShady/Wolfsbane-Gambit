@@ -19,6 +19,10 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AfterIntroTestPageComponent } from './after-intro-test-page/after-intro-test-page.component';
+import { AuthModule } from './auth/auth.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import { AfterIntroTestPageComponent } from './after-intro-test-page/after-intro
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig,'wolfsbane-gambit'),
     AngularFirestoreModule, 
@@ -36,9 +41,13 @@ import { AfterIntroTestPageComponent } from './after-intro-test-page/after-intro
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    BrowserAnimationsModule
+    AuthModule,
+    MatFormFieldModule,
+    MatIconModule,
+  
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
