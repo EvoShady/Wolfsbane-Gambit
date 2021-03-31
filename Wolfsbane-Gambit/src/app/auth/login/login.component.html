@@ -2,6 +2,9 @@
   <div class="col-12">
     <h2>Login</h2>
   </div>
+  <div class="row" *ngIf="authError">
+    <div class="col-12 alert alert-danger">{{ authError?.message }}</div>
+  </div>
   <form [formGroup]="userForm" (ngSubmit)="login()">
     <div class="form-group">
       <mat-form-field appearance="legacy">
@@ -28,7 +31,7 @@
       >Register</button>
     </div>
     <div class="link-format">
-      <a mat-stroked-button target="_blank" (click)="goToRegister()">Already have an account</a>
+      <a mat-stroked-button target="_blank" (click)="goToRegister()">Don't have an account?</a>
     </div>
   </form>
 </div>

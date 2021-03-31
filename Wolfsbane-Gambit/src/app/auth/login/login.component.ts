@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   userForm: FormGroup;
   hide=true;
+  authError: any;
   constructor(
     private auth: AuthService
   ) { }
@@ -24,11 +25,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.eventAuthError$.subscribe(data=>{
-      console.error(data);
+      this.authError=data;
     })
     this.userForm=new FormGroup({
       username: new FormControl("", [Validators.required,Validators.minLength(4),Validators.maxLength(30)]),
       password: new FormControl("",[Validators.required, Validators.minLength(8),Validators.maxLength(50)])
+    },{
+      validators: [this.auth.unknownUser("username")]
     })
   }
 
@@ -41,6 +44,9 @@ export class LoginComponent implements OnInit {
     }
     if(this.userForm.get('username').hasError('maxlength')){
       return 'Username must be at most 25 characters'
+    }
+    if(this.userForm.get('username').hasError('uu')){
+      return 'Unknown User'
     }
     return '';
   }
@@ -59,7 +65,7 @@ export class LoginComponent implements OnInit {
   }
 
   async login(){
-    await this.auth.login(this.userForm.get('username').value,this.userForm.get('password').value);
+    await this.auth.login(this.userForm.get('password').value);
   }
   
   goToRegister(){

@@ -24,8 +24,10 @@ export class AuthService {
     private rt: Router 
   ) { }
 
-  async login( email: string, password: string) {
-    await this.afa.signInWithEmailAndPassword(email, password)
+  private email;
+  
+  async login(password: string) {
+    await this.afa.signInWithEmailAndPassword(this.email, password)
       .catch(error => {
         this.eventAuthError.next(error);
       })
@@ -131,6 +133,28 @@ export class AuthService {
           usernameControl.setErrors(null);
         }else{
           usernameControl.setErrors({uae:true})
+        }
+      })
+    }
+  }
+
+  unknownUser(username:string){
+    return (formGrop: FormGroup)=>{
+      const usernameControl=formGrop.controls[username];
+      if(!usernameControl){
+        return null;
+      }
+      if(usernameControl.errors && usernameControl.errors.uu){
+        return null;
+      }
+      var temp;
+      this.getEmailbyUsername(usernameControl.value)
+      .then(res=>{
+        if(typeof(res)=="undefined"){
+          usernameControl.setErrors({uu:true})
+        }else{
+          usernameControl.setErrors(null);
+          this.email=res;
         }
       })
     }
