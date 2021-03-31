@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormControl, FormGroup,Validators } from '@angular/forms';
+import { templateJitUrl } from '@angular/compiler';
+
+
 
 
 
@@ -24,7 +27,7 @@ export class LoginComponent implements OnInit {
       console.error(data);
     })
     this.userForm=new FormGroup({
-      username: new FormControl("", [Validators.required,Validators.minLength(4),Validators.maxLength(25)]),
+      username: new FormControl("", [Validators.required,Validators.minLength(4),Validators.maxLength(30)]),
       password: new FormControl("",[Validators.required, Validators.minLength(8),Validators.maxLength(50)])
     })
   }

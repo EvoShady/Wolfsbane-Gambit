@@ -30,6 +30,18 @@
                 <mat-error *ngIf="userForm.get('password').invalid">{{ getPasswordErrors() }}</mat-error>
             </mat-form-field>
         </div>
+        <div class="form-group">
+            <mat-form-field appearance="legacy">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword">
+                       <button mat-icon-button matSuffix 
+                               (click)="hide = !hide" 
+                               [attr.aria-label]="'Hide password'" 
+                               [attr.aria-pressed]="hide">
+                               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>      
+                <mat-error *ngIf="userForm.get('confirmPassword').invalid">{{ getConfirmPasswordErrors() }}</mat-error>
+            </mat-form-field>
+        </div>
         <div>
             <button mat-raised-button color="primary" 
             type="submit"

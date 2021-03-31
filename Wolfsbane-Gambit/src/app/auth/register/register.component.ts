@@ -27,7 +27,11 @@ export class RegisterComponent implements OnInit {
     this.userForm=new FormGroup({
       username: new FormControl("", [Validators.required,Validators.minLength(4),Validators.maxLength(25)]),
       email: new FormControl("",[Validators.required,Validators.email]),
-      password: new FormControl("",[Validators.required, Validators.minLength(8),Validators.maxLength(50)])
+      password: new FormControl("",[Validators.required, Validators.minLength(8),Validators.maxLength(50)]),
+      confirmPassword: new FormControl("")
+    },{
+      validators: [this.auth.userAlreadyExistValidor("username"),
+      this.auth.passwordMatchValidator("password","confirmPassword")]
     })
 
   }
@@ -40,6 +44,9 @@ export class RegisterComponent implements OnInit {
     }
     if(this.userForm.get('username').hasError('maxlength')){
       return 'Username must be at most 25 characters'
+    }
+    if(this.userForm.get('username').hasError('uae')){
+      return 'Username already exist'
     }
     return '';
   }
@@ -62,6 +69,13 @@ export class RegisterComponent implements OnInit {
     }
     if(this.userForm.get('password').hasError('maxlength')){
       return 'Password must be at most 50 characters'
+    }
+    return '';
+  }
+
+  getConfirmPasswordErrors(){
+    if(this.userForm.get('confirmPassword').hasError('passwordMismatch')){
+      return "Password does't match"
     }
     return '';
   }
