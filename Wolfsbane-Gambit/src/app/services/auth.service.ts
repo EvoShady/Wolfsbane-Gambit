@@ -67,6 +67,14 @@ export class AuthService {
   prepareRoute(outlet: RouterOutlet){
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
+
+  goToLogin(){
+    this.rt.navigate(['login'])
+  }
+
+  goToRegister(){
+    this.rt.navigate(['register'])
+  }
  
   
   

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms'
+import { FormControl, FormGroup,Validators } from '@angular/forms';
+
 
 
 
@@ -12,17 +13,16 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '
 })
 export class RegisterComponent implements OnInit {
 
-  authError: any;
+  
   userForm: FormGroup;
   hide=true;
-  flc=new FormControl('auto');
   constructor(
-    private auth: AuthService,
+    private auth: AuthService
   ) { }
   
   ngOnInit(): void {
     this.auth.eventAuthError$.subscribe(data=>{
-      this.authError=data;
+      console.error(data);
     })
     this.userForm=new FormGroup({
       username: new FormControl("", [Validators.required,Validators.minLength(4),Validators.maxLength(25)]),
@@ -69,6 +69,11 @@ export class RegisterComponent implements OnInit {
   async createUser(){
     await this.auth.createUser(this.userForm.value);
   }
+  
+  goToLogin(){
+    this.auth.goToLogin()
+  }
+ 
 
   
 
