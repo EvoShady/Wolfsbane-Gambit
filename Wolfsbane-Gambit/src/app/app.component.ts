@@ -21,11 +21,15 @@ export class AppComponent implements OnInit{
   constructor(private router: Router) {}
 
   ngOnInit(){
+    this.router.navigate(['login']);
+  }
+/*
+  ngOnInit(){
      this.router.navigate(['introPage']);
     setTimeout(() => {
     this.router.navigate(['login']);
    }, 5500)
 
   }
-  
+  */
 }

@@ -1,5 +1,5 @@
 .backgroundIntroImage{
-    background-image: url("../../assets/images/intro-image.jpg");
+    background-image: url("../../assets/images/main_theme.jpg");
 
     z-index: 0;
     height: 100vh;
@@ -7,19 +7,4 @@
     position: relative;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.introText {
-    z-index: 1;
-    position: absolute;
-    
-    color: rgb(226, 226, 226);
-    font-family: "Harrington";
-    font-size: 110px;
-    font-weight: bold;
-    -webkit-text-stroke: 3px black;
 }

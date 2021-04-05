@@ -1,37 +1,46 @@
-<div class="row rt-4 surface">
-  <div class="col-12">
-    <h2>Login</h2>
-  </div>
-  <div class="row" *ngIf="authError">
-    <div class="col-12 alert alert-danger">{{ authError?.message }}</div>
-  </div>
-  <form [formGroup]="userForm" (ngSubmit)="login()">
-    <div class="form-group">
-      <mat-form-field appearance="legacy">
-        <mat-label>Username</mat-label>
-        <input matInput formControlName="username">     
-        <mat-error *ngIf="userForm.get('username').invalid">{{ getUsernameErrors() }}</mat-error>
-      </mat-form-field>
+<html>
+  <head></head>
+  <body>
+    <div class="backgroundImage">
+      <div class="row rt-4 surface">
+        <div class="col-12">
+          <div class="loginText">
+          <h2 class="loginText">Login</h2>
+          </div>
+        </div>
+        <div class="row" *ngIf="authError">
+          <div class="col-12 alert alert-danger">{{ authError?.message }}</div>
+        </div>
+        <form [formGroup]="userForm" (ngSubmit)="login()">
+          <div class="form-group">
+            <mat-form-field appearance="legacy" class="opaque-form-field">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="username">     
+              <mat-error *ngIf="userForm.get('username').invalid">{{ getUsernameErrors() }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="legacy" class="opaque-form-field">
+              <mat-label>Password</mat-label>
+              <input  matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+              <button mat-icon-button matSuffix 
+                      (click)="hide = !hide" 
+                      [attr.aria-label]="'Hide password'" 
+                      [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-raised-button color="primary" 
+            type="submit"
+            [disabled]="userForm.invalid"
+            >Login</button>
+          </div>
+          <div class="link-format">
+            <a mat-stroked-button target="_blank" (click)="goToRegister()">Don't have an account?</a>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="form-group">
-      <mat-form-field appearance="legacy">
-        <mat-label>Password</mat-label>
-        <input  matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-        <button mat-icon-button matSuffix 
-                (click)="hide = !hide" 
-                [attr.aria-label]="'Hide password'" 
-                [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
-      </mat-form-field>
-    </div>
-    <div>
-      <button mat-raised-button color="primary" 
-      type="submit"
-      [disabled]="userForm.invalid"
-      >Register</button>
-    </div>
-    <div class="link-format">
-      <a mat-stroked-button target="_blank" (click)="goToRegister()">Don't have an account?</a>
-    </div>
-  </form>
-</div>
+  </body>
+</html>

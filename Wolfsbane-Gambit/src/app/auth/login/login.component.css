@@ -1,25 +1,44 @@
+.backgroundImage{
+  background-image: url("../../../assets/images/main_theme.jpg");
 
-  .backgroundIntroImage{
-    background-image: url("../../../assets/images/main_theme.jpg");
+  z-index: 0;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    z-index: 0;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+  .loginText {
+    z-index: 1;
+    
+    color: rgb(226, 226, 226);
+    font-family: "Harrington";
+    font-weight: bold;
+    font-size: 100px;
+    font-weight: bold;
+    -webkit-text-stroke: 3px black;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    margin-bottom: 100px;
+}
+
+.opaque-form-field {
+    background-color: #fff;
+    border-radius: 3px;
+    height: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+}
 
   form{
-    min-width: 150px;
+    min-width: 450px;
     max-width: 500px;
     width: 100%;
-    margin-left: 533px;
-    margin-top: 150px;
+    padding-bottom: 200px;
   }
   
   mat-form-field{
@@ -37,5 +56,5 @@
    }
 
   .surface{
-    z-index: 100;
+    z-index: 1;
   }
