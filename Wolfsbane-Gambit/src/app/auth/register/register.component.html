@@ -1,56 +1,61 @@
-<div class="row mt-4 surface"> 
-    <div class="col-12">
-        <h2>Register</h2>
+<html>
+  <head></head>
+  <body>
+    <div class="backgroundImage">
+        <div class="row mt-4 surface"> 
+            <div class="col-12">
+                <h2 class="registerText">Register</h2>
+            </div>
+            <form [formGroup]="userForm" (ngSubmit)="createUser()">
+                <div class="form-group">
+                    <mat-form-field class="opaque-form-field" appearance="legacy">
+                        <mat-label>Username</mat-label>
+                        <input matInput formControlName="username">     
+                        <mat-error *ngIf="userForm.get('username').invalid">{{ getUsernameErrors() }}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="opaque-form-field" appearance="legacy">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email">
+                        <mat-error *ngIf="userForm.get('email').invalid">{{ getEmailErrors() }}</mat-error>
+                    </mat-form-field>    
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="opaque-form-field" appearance="legacy">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                            <button mat-icon-button matSuffix 
+                                    (click)="hide = !hide" 
+                                    [attr.aria-label]="'Hide password'" 
+                                    [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>      
+                        <mat-error *ngIf="userForm.get('password').invalid">{{ getPasswordErrors() }}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="opaque-form-field" appearance="legacy">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword">
+                            <button mat-icon-button matSuffix 
+                                    (click)="hide = !hide" 
+                                    [attr.aria-label]="'Hide password'" 
+                                    [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>      
+                        <mat-error *ngIf="userForm.get('confirmPassword').invalid">{{ getConfirmPasswordErrors() }}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-raised-button color="primary" 
+                    type="submit"
+                    [disabled]="userForm.invalid"
+                    >Register</button>
+                </div>
+                <div class="link-format">
+                    <a class="opaque-form-field2" mat-stroked-button target="_blank" (click)="goToLogin()">Already have an accont</a>
+                </div>
+            </form>
+        </div>
     </div>
-    
-    <form [formGroup]="userForm" (ngSubmit)="createUser()">
-          <div class="form-group">
-            <mat-form-field appearance="legacy">
-                <mat-label>Username</mat-label>
-                <input matInput formControlName="username">     
-                <mat-error *ngIf="userForm.get('username').invalid">{{ getUsernameErrors() }}</mat-error>
-            </mat-form-field>
-        </div>
-        <div class="form-group">
-            <mat-form-field appearance="legacy">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email">
-                <mat-error *ngIf="userForm.get('email').invalid">{{ getEmailErrors() }}</mat-error>
-            </mat-form-field>    
-        </div>
-        <div class="form-group">
-            <mat-form-field appearance="legacy">
-                <mat-label>Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-                       <button mat-icon-button matSuffix 
-                               (click)="hide = !hide" 
-                               [attr.aria-label]="'Hide password'" 
-                               [attr.aria-pressed]="hide">
-                               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>      
-                <mat-error *ngIf="userForm.get('password').invalid">{{ getPasswordErrors() }}</mat-error>
-            </mat-form-field>
-        </div>
-        <div class="form-group">
-            <mat-form-field appearance="legacy">
-                <mat-label>Confirm Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword">
-                       <button mat-icon-button matSuffix 
-                               (click)="hide = !hide" 
-                               [attr.aria-label]="'Hide password'" 
-                               [attr.aria-pressed]="hide">
-                               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>      
-                <mat-error *ngIf="userForm.get('confirmPassword').invalid">{{ getConfirmPasswordErrors() }}</mat-error>
-            </mat-form-field>
-        </div>
-        <div>
-            <button mat-raised-button color="primary" 
-            type="submit"
-            [disabled]="userForm.invalid"
-            >Register</button>
-        </div>
-        <div class="link-format">
-            <a mat-stroked-button target="_blank" (click)="goToLogin()">Already have an accont</a>
-        </div>
-    </form>
-</div>
-
+</body>
+</html>

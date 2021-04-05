@@ -1,4 +1,4 @@
-.backgroundImage{
+ .backgroundImage{
   background-image: url("../../../assets/images/main_theme.jpg");
 
   z-index: 0;
@@ -11,28 +11,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+ }
 
-  .loginText {
+ .loginText {
     z-index: 1;
     
     color: rgb(226, 226, 226);
     font-family: "Harrington";
     font-weight: bold;
-    font-size: 100px;
+    font-size: 85px;
     font-weight: bold;
     -webkit-text-stroke: 3px black;
 
     margin-bottom: 100px;
-}
+ }
 
-.opaque-form-field {
+ .opaque-form-field {
     background-color: #fff;
-    border-radius: 3px;
-    height: 40px;
+    border-radius: 2px;
+    height: 38px;
     margin-bottom: 40px;
-    padding-bottom: 40px;
-}
+ }
+
+ .opaque-form-field2 {
+  background-color: #fff;
+  border-radius: 15px;
+  height: 30px;
+ }
 
   form{
     min-width: 450px;
