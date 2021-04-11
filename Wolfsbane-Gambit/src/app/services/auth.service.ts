@@ -1,4 +1,3 @@
-import { templateJitUrl } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
@@ -6,7 +5,6 @@ import { FormGroup } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
 import { BehaviorSubject, observable, Observable } from 'rxjs';
 import { User } from '../models/user';
-
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +31,7 @@ export class AuthService {
       })
       .then(userCredential => {
         if(userCredential) {
-          this.rt.navigate(['afterIntro']);
+          this.rt.navigate(['mainMenu']);
         }
       })
   }
@@ -48,7 +46,7 @@ export class AuthService {
 
         this.insertUserData()
           .then(() => {
-            this.rt.navigate(['afterIntro']);
+            this.rt.navigate(['login']);
           });
       })
       .catch( error => {

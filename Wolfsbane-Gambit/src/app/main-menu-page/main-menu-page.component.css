@@ -1,0 +1,61 @@
+.backgroundMainImage{
+  background-image: url("../../assets/images/main_theme.jpg");
+
+  z-index: 0;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button{
+  min-height: auto;
+  min-width: auto;
+
+  color: rgb(42,155,230);
+  font-family: "Harrington";
+  font-weight: bold;
+  font-size: 45px;
+  font-weight: bold;
+  -webkit-text-stroke: 1px rgb(0, 64, 92);
+
+  margin-bottom: 30px;
+
+  border-radius: 10px;
+}
+
+.wolfsbaneGambit{
+  z-index: 1;
+
+  color: rgb(255, 255, 255);
+  font-family: "Harrington";
+  font-weight: bold;
+  font-size: 85px;
+  font-weight: bold;
+  -webkit-text-stroke: 3px black;
+
+  margin-bottom: 125px;
+}
+
+.bottomPadding{
+  padding-bottom: 100px;
+}
+
+.logOutText{
+  color: rgb(255, 255, 255);
+  font-family: "Harrington";
+  font-size: 35px;
+  -webkit-text-stroke: 0.3px black;
+  
+  border-radius: 10px;
+}
+
+.logOutPosition{
+  height: 0;
+  width: 0;
+}
