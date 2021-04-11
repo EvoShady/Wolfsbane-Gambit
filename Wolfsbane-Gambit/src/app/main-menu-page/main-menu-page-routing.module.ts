@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainMenuPageComponent } from './main-menu-page.component';
 
 const routes: Routes = [
-  { path: 'temp', component: MainMenuPageComponent, data: {animation: 'temp'}, outlet:'temp'},
+  { path: 'temp', component: MainMenuPageComponent, data: {animation: 'mainMenu'}},
 ];
 
 @NgModule({

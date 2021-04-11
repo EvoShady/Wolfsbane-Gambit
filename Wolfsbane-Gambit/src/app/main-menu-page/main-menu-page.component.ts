@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MainMenuService } from '../services/main-menu.service'
+import { MainMenuService } from 'src/app/services/main-menu.service'
 
 @Component({
   selector: 'app-main-menu-page',
@@ -9,7 +9,7 @@ import { MainMenuService } from '../services/main-menu.service'
 export class MainMenuPageComponent implements OnInit{
 
   ngOnInit(): void { }
-  
+
   constructor(
     private mainMenu: MainMenuService
   ) { }

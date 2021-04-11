@@ -10,9 +10,6 @@ export class MainMenuService {
     constructor(private router: Router,
       private auth: AuthService,) {}
 
-ngOnInit(): void {
-}
-
 prepareRoute(outlet: RouterOutlet){
 return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
 }
