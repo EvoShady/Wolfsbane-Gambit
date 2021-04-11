@@ -1,5 +1,5 @@
 .backgroundMainImage{
-    background-image: url("../../assets/images/main_theme.jpg");
+  background-image: url("../../assets/images/main_theme.jpg");
 
   z-index: 0;
   height: 100vh;
@@ -50,7 +50,6 @@
   color: rgb(255, 255, 255);
   font-family: "Harrington";
   font-size: 35px;
-
   -webkit-text-stroke: 0.3px black;
   
   border-radius: 10px;
@@ -59,5 +58,4 @@
 .logOutPosition{
   height: 0;
   width: 0;
-  left: 0;
 }

@@ -18,7 +18,7 @@ import { environment } from '../environments/environment';
 //Animation Module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MainMenuPageComponent } from './main-menu-page/main-menu-page.component';
+import { MainMenuPageModule } from './main-menu-page/main-menu-page.module';
 import { AuthModule } from './auth/auth.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -27,7 +27,6 @@ import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuPageComponent,
     IntroPageComponent
   ],
   imports: [
@@ -44,6 +43,7 @@ import { MatIconModule } from '@angular/material/icon';
     AuthModule,
     MatFormFieldModule,
     MatIconModule,
+    MainMenuPageModule,
   
   ],
   providers: [],
