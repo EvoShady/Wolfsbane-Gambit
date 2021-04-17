@@ -27,7 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
-    IntroPageComponent
+    IntroPageComponent,
   ],
   imports: [
     BrowserModule,
