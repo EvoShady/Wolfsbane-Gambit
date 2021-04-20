@@ -1,57 +1,90 @@
 <html>
 <head></head>
 <body>
+
 <div class="backgroundImageTest">
     <mat-grid-list cols="3" rowHeight="4:1">
         <mat-grid-tile></mat-grid-tile>
-        <mat-grid-tile><h1 class="patternTitle">Pattern</h1></mat-grid-tile>
+        <mat-grid-tile><h1 class="patternTitle">Patterns</h1></mat-grid-tile>
         <mat-grid-tile></mat-grid-tile>
     </mat-grid-list>
     <div class="bottomPadding"></div>
     <mat-grid-list cols="2" rowHeight="4:1">
         <mat-grid-tile>
             <mat-grid-list cols="1" rowHeight="4:1">
-                <div class="whiteBgForLevels"><div class="patternImage"></div></div>
-                <div class="patternText">Pattern 1</div>
+                <div class="whiteBgForLevels">
+                    <div class="patternImage"
+                    [style.background-image]="'url(' + split_list[0].preview + ')'">
+                    </div>
+                </div>
+                <div class="patternText">Pattern {{ lable+1 }}</div>
             </mat-grid-list>
             <div class="leftPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
-                <div class="whiteBgForLevels"></div>
-                <div class="patternText">Pattern 2</div>
+                <div class="whiteBgForLevels">
+                    <div class="patternImage"
+                    [style.background-image]="'url(' + split_list[1].preview + ')'">
+                    </div>
+                </div>
+                <div class="patternText">Pattern {{ lable+2 }}</div>
             </mat-grid-list>
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-grid-list cols="1" rowHeight="4:1">
-                <div class="whiteBgForLevels"></div>
-                <div class="patternText">Pattern 3</div>
+                <div class="whiteBgForLevels">
+                    <div class="patternImage"
+                    [style.background-image]="'url(' + split_list[2].preview + ')'">
+                    </div>
+                </div>
+                <div class="patternText">Pattern {{ lable+3 }}</div>
             </mat-grid-list>
             <div class="rightPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
-                <div class="whiteBgForLevels"></div>
-                <div class="patternText">Pattern 4</div>
+                <div class="whiteBgForLevels">
+                    <div class="patternImage"
+                    [style.background-image]="'url(' + split_list[3].preview + ')'">
+                    </div>
+                </div>
+                <div class="patternText">Pattern {{ lable+4 }}</div>
             </mat-grid-list>
         </mat-grid-tile>
         <div class="bottomPadding"></div>
         <mat-grid-tile>
             <mat-grid-list cols="1" rowHeight="4:1">
-                <div class="whiteBgForLevels"></div>
-                <div class="patternText">Pattern 5</div>
+                <div class="whiteBgForLevels">
+                    <div class="patternImage"
+                    [style.background-image]="'url(' + split_list[4].preview + ')'">
+                    </div>
+                </div>
+                <div class="patternText">Pattern {{ lable+5 }}</div>
             </mat-grid-list>
             <div class="leftPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
-                <div class="whiteBgForLevels"></div>
-                <div class="patternText">Pattern 6</div>
+                <div class="whiteBgForLevels">
+                    <div class="patternImage"
+                    [style.background-image]="'url(' + split_list[5].preview + ')'">
+                    </div>
+                </div>
+                <div class="patternText">Pattern {{ lable+6 }}</div>
             </mat-grid-list>
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-grid-list cols="1" rowHeight="4:1">
-                <div class="whiteBgForLevels"></div>
-                <div class="patternText">Pattern 7</div>
+                <div class="whiteBgForLevels">
+                    <div class="patternImage"
+                    [style.background-image]="'url(' + split_list[6].preview + ')'">
+                    </div>
+                </div>
+                <div class="patternText">Pattern {{ lable+7 }}</div>
             </mat-grid-list>
             <div class="rightPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
-                <div class="whiteBgForLevels"></div>
-                <div class="patternText">Pattern 8</div>
+                <div class="whiteBgForLevels">
+                    <div class="patternImage"
+                    [style.background-image]="'url(' + split_list[7].preview + ')'">
+                    </div>
+                </div>
+                <div class="patternText">Pattern {{ lable+8 }}</div>
             </mat-grid-list>
         </mat-grid-tile>
     </mat-grid-list>
@@ -61,7 +94,9 @@
             <div class="whiteBgForBottomMenu">
                 <h1 class="pageText">Page</h1>
                 <mat-paginator
-                    [length]="1"
+                    [length]="length"
+                    [pageSize]="pageSize"
+                    (page)="populatePage($event)"
                     [hidePageSize]="true"
                     [showFirstLastButtons]="true">
                 </mat-paginator>
