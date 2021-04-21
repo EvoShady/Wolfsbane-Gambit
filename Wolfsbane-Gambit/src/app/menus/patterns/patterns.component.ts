@@ -1,8 +1,11 @@
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y';
-import { ThisReceiver } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { pattern } from 'src/app/models/pattern';
+import { AngularFirestore} from '@angular/fire/firestore';
+
+
+
 
 
 @Component({
@@ -13,54 +16,48 @@ import { pattern } from 'src/app/models/pattern';
 export class PatternsComponent implements OnInit {
   list: pattern[]=new Array<pattern>();
   split_list: pattern[]=new Array<pattern>();
-  length:number = 20;
+  length:number;
   pageSize:number = 8;
-  lable:number = 0;
+  url: string;
+
   
  
-  constructor() { }
-  populate(){
-    for(let i=0;i<this.length;i++){
-      let node={
-        preview: "../../../assets/images/main_theme.jpg",
-        description: "ceva descriere",
-        url_table: "ceva url"
-      }
-      this.list.push(node);
-    }
+  constructor(private db: AngularFirestore) { }
+  async populate(){
+    const ref= (await this.db.collection('Patterns').get().toPromise()).docs.map(doc=>{
+      this.list.push(doc.data() as pattern);
+    })
+    this.length=this.list.length;
+    
     let limit=8;
     while(limit<this.length){
       limit =limit+8;
     }
     while(limit>this.length){
-      limit--;
-      let node={
-        preview: "../../../assets/images/intro-image.jpg",
-        description: "ceva descriere",
-        url_table: "ceva url"
+        limit--;
+        let node={
+          imageUrl: "../../../assets/images/intro-image.jpg",
+          description: "",
+          tittle: "comming up"
+        }
+        this.list.push(node);
       }
-      this.list.push(node);
-    }
   }
-
+  
+  
   populatePage(event: PageEvent){
     let start=event.pageIndex*8;
-    this.lable=start;
     let stop=start+8;
-    this.split_list.splice(0,8);
+    this.split_list.splice(0,8);//clear list
     this.split_list=this.list.slice(start,stop);
-    
-    
-    console.warn(this.split_list);
+    this.url=this.split_list[0].imageUrl;
   }
 
 
   
-  ngOnInit(): void {
-    this.populate();
+  async ngOnInit() {
+    await this.populate();
     this.split_list=this.list.slice(0,8);
-    console.warn(this.split_list);
-
   }
 
 }
