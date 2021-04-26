@@ -44,7 +44,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatIconModule,
     MainMenuPageModule,
-  
   ],
   providers: [],
   bootstrap: [AppComponent],
