@@ -44,4 +44,8 @@ export class LevelsService {
   goBack2Patterns(){
     this.rt.navigate(['patterns']);
   }
+
+  goBack2Menu(){
+    this.rt.navigate(['mainMenu']);
+  }
 }

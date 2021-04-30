@@ -72,4 +72,8 @@ export class PatternsComponent implements OnInit {
     this.split_activeLinks=this.activeLinks.slice(0,8);
   }
 
+  goBack(){
+    this.lvs.goBack2Menu();
+  }
+
 }
