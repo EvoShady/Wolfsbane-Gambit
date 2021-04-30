@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { pattern } from 'src/app/models/pattern';
 import { AngularFirestore} from '@angular/fire/firestore';
+import { LevelsService } from 'src/app/services/levels.service';
 
 
 
@@ -22,11 +23,14 @@ export class PatternsComponent implements OnInit {
 
   
  
-  constructor(private db: AngularFirestore) { }
+  constructor(private lvs: LevelsService) { }
   async populate(){
-    const ref= (await this.db.collection('Patterns').get().toPromise()).docs.map(doc=>{
-      this.list.push(doc.data() as pattern);
-    })
+   await this.lvs.getPatterns()
+    .then(doc=>doc.docs.map((it)=>{
+      let temp=it.data() as pattern;
+      temp.id=it.id;
+      this.list.push(temp);
+    }))
     this.length=this.list.length;
     
     let limit=8;
@@ -51,6 +55,10 @@ export class PatternsComponent implements OnInit {
     this.split_list.splice(0,8);//clear list
     this.split_list=this.list.slice(start,stop);
     this.url=this.split_list[0].imageUrl;
+  }
+
+  async goToPatternLevel(index: number){
+    await this.lvs.goToPatternLevel(this.split_list[index].id);
   }
 
 

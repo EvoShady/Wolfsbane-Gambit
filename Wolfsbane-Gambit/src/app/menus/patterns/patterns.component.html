@@ -14,38 +14,40 @@
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
                     <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[0].imageUrl + ')'">
+                    [style.background-image]="'url(' + split_list[0]?.imageUrl + ')'">
                     </div>
                 </div>
-                <div class="patternText"> {{ split_list[0].tittle }}</div>
+                <div class="patternText"> 
+                    <a (click)="goToPatternLevel(0)"> {{ split_list[0]?.tittle }}</a>
+                </div>
             </mat-grid-list>
             <div class="leftPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
                     <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[1].imageUrl + ')'">
+                    [style.background-image]="'url(' + split_list[1]?.imageUrl + ')'">
                     </div>
                 </div>
-                <div class="patternText"> {{ split_list[1].tittle }}</div>
+                <div class="patternText"> {{ split_list[1]?.tittle }}</div>
             </mat-grid-list>
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
                     <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[2].imageUrl + ')'">
+                    [style.background-image]="'url(' + split_list[2]?.imageUrl + ')'">
                     </div>
                 </div>
-                <div class="patternText"> {{ split_list[2].tittle }}</div>
+                <div class="patternText"> {{ split_list[2]?.tittle }}</div>
             </mat-grid-list>
             <div class="rightPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
                     <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[3].imageUrl + ')'">
+                    [style.background-image]="'url(' + split_list[3]?.imageUrl + ')'">
                     </div>
                 </div>
-                <div class="patternText"> {{ split_list[3].tittle }}</div>
+                <div class="patternText"> {{ split_list[3]?.tittle }}</div>
             </mat-grid-list>
         </mat-grid-tile>
         <div class="bottomPadding"></div>
@@ -53,38 +55,38 @@
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
                     <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[4].imageUrl + ')'">
+                    [style.background-image]="'url(' + split_list[4]?.imageUrl + ')'">
                     </div>
                 </div>
-                <div class="patternText"> {{ split_list[4].tittle }}</div>
+                <div class="patternText"> {{ split_list[4]?.tittle }}</div>
             </mat-grid-list>
             <div class="leftPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
                     <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[5].imageUrl + ')'">
+                    [style.background-image]="'url(' + split_list[5]?.imageUrl + ')'">
                     </div>
                 </div>
-                <div class="patternText"> {{ split_list[5].tittle }}</div>
+                <div class="patternText"> {{ split_list[5]?.tittle }}</div>
             </mat-grid-list>
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
                     <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[6].imageUrl + ')'">
+                    [style.background-image]="'url(' + split_list[6]?.imageUrl + ')'">
                     </div>
                 </div>
-                <div class="patternText"> {{ split_list[6].tittle }}</div>
+                <div class="patternText"> {{ split_list[6]?.tittle }}</div>
             </mat-grid-list>
             <div class="rightPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
                     <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[7].imageUrl + ')'">
+                    [style.background-image]="'url(' + split_list[7]?.imageUrl + ')'">
                     </div>
                 </div>
-                <div class="patternText"> {{ split_list[7].tittle }}</div>
+                <div class="patternText"> {{ split_list[7]?.tittle }}</div>
             </mat-grid-list>
         </mat-grid-tile>
     </mat-grid-list>
