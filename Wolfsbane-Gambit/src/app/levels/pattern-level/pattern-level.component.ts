@@ -20,5 +20,8 @@ export class PatternLevelComponent implements OnInit {
       }) 
     })
   }
+  goBack(){
+    this.lvs.goBack2Patterns();
+  }
 
 }

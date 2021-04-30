@@ -41,5 +41,7 @@ export class LevelsService {
     .get()
   }
 
-
+  goBack2Patterns(){
+    this.rt.navigate(['patterns']);
+  }
 }

@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { pattern } from 'src/app/models/pattern';
-import { AngularFirestore} from '@angular/fire/firestore';
 import { LevelsService } from 'src/app/services/levels.service';
 
 
@@ -17,9 +16,10 @@ import { LevelsService } from 'src/app/services/levels.service';
 export class PatternsComponent implements OnInit {
   list: pattern[]=new Array<pattern>();
   split_list: pattern[]=new Array<pattern>();
+  activeLinks: boolean[]=new Array<boolean>();
+  split_activeLinks: boolean[]=new Array<boolean>();
   length:number;
   pageSize:number = 8;
-  url: string;
 
   
  
@@ -30,6 +30,7 @@ export class PatternsComponent implements OnInit {
       let temp=it.data() as pattern;
       temp.id=it.id;
       this.list.push(temp);
+      this.activeLinks.push(true);
     }))
     this.length=this.list.length;
     
@@ -45,6 +46,7 @@ export class PatternsComponent implements OnInit {
           tittle: "comming up"
         }
         this.list.push(node);
+        this.activeLinks.push(false);
       }
   }
   
@@ -53,8 +55,9 @@ export class PatternsComponent implements OnInit {
     let start=event.pageIndex*8;
     let stop=start+8;
     this.split_list.splice(0,8);//clear list
+    this.split_activeLinks.splice(0,8);
     this.split_list=this.list.slice(start,stop);
-    this.url=this.split_list[0].imageUrl;
+    this.split_activeLinks=this.activeLinks.slice(start,stop);
   }
 
   async goToPatternLevel(index: number){
@@ -66,6 +69,7 @@ export class PatternsComponent implements OnInit {
   async ngOnInit() {
     await this.populate();
     this.split_list=this.list.slice(0,8);
+    this.split_activeLinks=this.activeLinks.slice(0,8);
   }
 
 }
