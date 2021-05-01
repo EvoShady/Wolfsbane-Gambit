@@ -6,6 +6,7 @@ import { PatternLevelComponent } from './pattern-level/pattern-level.component';
 import { PuzzleLevelComponent } from './puzzle-level/puzzle-level.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -15,7 +16,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     CommonModule,
     LevelsRoutingModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonModule,
   ]
 })
 export class LevelsModule { }

@@ -7,6 +7,7 @@ import { PuzzlesComponent } from './puzzles/puzzles.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [PatternsComponent, PuzzlesComponent],
@@ -16,6 +17,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatGridListModule,
     MatPaginatorModule,
+    MatButtonModule,
   ]
 })
 export class MenusModule { }
