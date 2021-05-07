@@ -16,7 +16,7 @@ export class MainMenuPageComponent implements OnInit{
 
   goToPuzzles(){
     this.mainMenu.goToPuzzles();
-    }
+   }
     
     goToPatterns(){
     this.mainMenu.goToPatterns();

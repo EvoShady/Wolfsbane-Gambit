@@ -1,0 +1,98 @@
+.backgroundImageTest{
+  background-image: url("../../../assets/images/main_theme.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.patternImage{
+  z-index: 2;
+  background-image: url("../../../assets/images/main_theme.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 150px;
+  min-width: 150px;
+
+  border-radius: 25px;
+}
+
+.patternTitle{
+  z-index: 1;
+
+  color: rgb(255, 255, 255);
+  font-family: "Harrington";
+  font-weight: bold;
+  font-size: 85px;
+  font-weight: bold;
+  -webkit-text-stroke: 3px black;
+}
+
+.backButtonStyle{
+  z-index: 1;
+
+  color: rgb(255, 255, 255);
+  font-family: "Harrington";
+  font-weight: bold;
+  font-size: 30px;
+  -webkit-text-stroke: 1px black;
+
+  margin-right: 50%;
+}
+
+.patternText{
+  z-index: 1;
+
+  color: rgb(255, 255, 255);
+  font-family: "Harrington";
+  font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.pageText{
+  color: rgb(0, 0, 0);
+  font-family: "Harrington";
+  font-weight: bold;
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.whiteBgForLevels{
+  background-color: white;
+  min-height: 160px;
+  min-width: 160px;
+  border-radius: 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whiteBgForBottomMenu{
+  background-color: white;
+  min-width: 500px;
+  border-radius: 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftPadding{
+  padding-left: 100px;
+}
+
+.rightPadding{
+  padding-right: 100px;
+}
+
+.bottomPadding{
+  padding-bottom: 30px;
+}
+
+a {
+  /* color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}

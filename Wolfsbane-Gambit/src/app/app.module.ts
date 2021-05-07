@@ -23,11 +23,14 @@ import { AuthModule } from './auth/auth.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { LevelsModule } from './levels/levels.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IntroPageComponent
+    IntroPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatIconModule,
     MainMenuPageModule,
+    MatCardModule,
+    MatGridListModule,
+    LevelsModule
   
   ],
   providers: [],

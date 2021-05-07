@@ -15,11 +15,11 @@ return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animati
 }
 
 goToPuzzles(){
-this.router.navigate(['temp']);
+this.router.navigate(['puzzles']);
 }
 
 goToPatterns(){
-this.router.navigate(['temp']);
+this.router.navigate(['patterns']);
 }
 
 goToLoginAfterLogOut(){
