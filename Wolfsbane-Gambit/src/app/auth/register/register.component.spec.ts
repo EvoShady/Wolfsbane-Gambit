@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AuthService } from 'src/app/services/auth.service';
 
 import { RegisterComponent } from './register.component';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
-  let fixture: ComponentFixture<RegisterComponent>;
+  let auth: AuthService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -14,9 +15,7 @@ describe('RegisterComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new RegisterComponent(auth)
   });
 
   it('should create', () => {

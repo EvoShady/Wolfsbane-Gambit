@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LevelsService } from 'src/app/services/levels.service';
 
 import { PuzzlesComponent } from './puzzles.component';
 
 describe('PuzzlesComponent', () => {
-  let component: PuzzlesComponent;
-  let fixture: ComponentFixture<PuzzlesComponent>;
+  let puzzleComponent: PuzzlesComponent
+  let lvs: LevelsService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -14,12 +15,10 @@ describe('PuzzlesComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PuzzlesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    puzzleComponent = new PuzzlesComponent(lvs)
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(puzzleComponent).toBeTruthy();
   });
 });

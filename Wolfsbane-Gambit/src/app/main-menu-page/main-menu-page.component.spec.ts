@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MainMenuService } from '../services/main-menu.service';
 
 import { MainMenuPageComponent } from './main-menu-page.component';
 
 describe('MainMenuPageComponent', () => {
   let component: MainMenuPageComponent;
-  let fixture: ComponentFixture<MainMenuPageComponent>;
+  let mainMenuService: MainMenuService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -14,9 +15,7 @@ describe('MainMenuPageComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainMenuPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new MainMenuPageComponent(mainMenuService)
   });
 
   it('should create', () => {
