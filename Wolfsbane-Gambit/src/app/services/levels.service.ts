@@ -26,10 +26,20 @@ export class LevelsService {
     .toPromise() 
   }
 
+  async getPuzzles(){
+    return this.db
+    .collection('Puzzles')
+    .get()
+    .toPromise()
+  }
+
   async goToPatternLevel(param: string){
     this.rt.navigate(['pattern-level',param],{relativeTo: this.art});
   }
 
+  async goToPuzzlesLevel(param: string){
+    this.rt.navigate(['puzzle-level',param],{relativeTo: this.art});
+  }
   async renderPattern(){
     var id;
     this.art.snapshot.children.map(el=>{
@@ -41,10 +51,24 @@ export class LevelsService {
     .get()
   }
 
+  async renderPuzzle(){
+    var id;
+    this.art.snapshot.children.map(el=>{
+      id=el.paramMap.get('id');
+    })
+    return this.db
+    .collection('Puzzels')
+    .doc(id)
+    .get()
+  }
+
   goBack2Patterns(){
     this.rt.navigate(['patterns']);
   }
-
+  
+  goBack2Puzzles(){
+    this.rt.navigate(['puzzles'])
+  }
   goBack2Menu(){
     this.rt.navigate(['mainMenu']);
   }

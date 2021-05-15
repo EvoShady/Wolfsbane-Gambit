@@ -10,10 +10,9 @@ import { LevelsService } from 'src/app/services/levels.service';
 })
 export class PuzzleLevelComponent implements OnInit {
 
-  boardId = "8011345"
-  puzzleTitle = "Titlu"
-  url: string = "//www.chess.com/emboard?id=8011345";
-
+  boardId:string;
+  puzzleTitle:string;
+ 
   urlSafe: SafeResourceUrl;
 
   pattern2render: pattern;
@@ -22,13 +21,17 @@ export class PuzzleLevelComponent implements OnInit {
     public sanitizer: DomSanitizer
   ) { }
   async ngOnInit(){
-    this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+    this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.makeUrl());
     await this.lvs.renderPattern()
     .then(val=>{
       val.subscribe(p=>{
         this.pattern2render=p.data() as pattern;
       }) 
     })
+  }
+
+  makeUrl():string{
+    return "//www.chess.com/emboard?id="+this.boardId;
   }
   goBack(){
     this.lvs.goBack2Patterns();
