@@ -1,6 +1,7 @@
 export interface puzzle{
-    title:string;
     code: string;
     priview:string;
+    title:string;
+   
     id?:string;
 }

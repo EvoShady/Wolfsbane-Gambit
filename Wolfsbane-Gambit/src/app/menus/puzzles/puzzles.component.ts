@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { pattern } from 'src/app/models/pattern';
+import { puzzle } from 'src/app/models/puzzle';
 import { LevelsService } from 'src/app/services/levels.service';
 
 @Component({
@@ -9,8 +10,8 @@ import { LevelsService } from 'src/app/services/levels.service';
   styleUrls: ['./puzzles.component.css']
 })
 export class PuzzlesComponent implements OnInit {
-  list: pattern[]=new Array<pattern>();
-  split_list: pattern[]=new Array<pattern>();
+  list: puzzle[]=new Array<puzzle>();
+  split_list: puzzle[]=new Array<puzzle>();
   activeLinks: boolean[]=new Array<boolean>();
   split_activeLinks: boolean[]=new Array<boolean>();
   length:number;
@@ -18,9 +19,9 @@ export class PuzzlesComponent implements OnInit {
 
   constructor(private lvs: LevelsService) { }
   async populate(){
-   await this.lvs.getPatterns()
+   await this.lvs.getPuzzles()
     .then(doc=>doc.docs.map((it)=>{
-      let temp=it.data() as pattern;
+      let temp=it.data() as puzzle;
       temp.id=it.id;
       this.list.push(temp);
       this.activeLinks.push(true);
@@ -34,9 +35,9 @@ export class PuzzlesComponent implements OnInit {
     while(limit>this.length){
         limit--;
         let node={
-          imageUrl: "../../../assets/images/intro-image.jpg",
-          description: "",
-          tittle: "comming up"
+          priview: "../../../assets/images/intro-image.jpg",
+          code:"",
+          title: "comming up"
         }
         this.list.push(node);
         this.activeLinks.push(false);
@@ -53,8 +54,8 @@ export class PuzzlesComponent implements OnInit {
     this.split_activeLinks=this.activeLinks.slice(start,stop);
   }
 
-  async goToPatternLevel(index: number){
-    await this.lvs.goToPatternLevel(this.split_list[index].id);
+  async goToPuzzleLevel(index: number){
+    await this.lvs.goToPuzzlesLevel(this.split_list[index].id);
   }
 
 
@@ -62,6 +63,7 @@ export class PuzzlesComponent implements OnInit {
   async ngOnInit() {
     await this.populate();
     this.split_list=this.list.slice(0,8);
+    console.warn(this.split_list);
     this.split_activeLinks=this.activeLinks.slice(0,8);
   }
 

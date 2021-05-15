@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { pattern } from 'src/app/models/pattern';
+import { puzzle } from 'src/app/models/puzzle';
 import { LevelsService } from 'src/app/services/levels.service';
 
 @Component({
@@ -10,31 +10,31 @@ import { LevelsService } from 'src/app/services/levels.service';
 })
 export class PuzzleLevelComponent implements OnInit {
 
-  boardId:string;
-  puzzleTitle:string;
- 
+  puzzle2render:puzzle;
   urlSafe: SafeResourceUrl;
-
-  pattern2render: pattern;
   constructor(
     private lvs: LevelsService,
     public sanitizer: DomSanitizer
   ) { }
   async ngOnInit(){
-    this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.makeUrl());
-    await this.lvs.renderPattern()
+    await this.lvs.renderPuzzle()
     .then(val=>{
       val.subscribe(p=>{
-        this.pattern2render=p.data() as pattern;
+        this.puzzle2render=p.data() as puzzle;
       }) 
     })
+    await this.makeUrl();
+   
+     
+
   }
 
-  makeUrl():string{
-    return "//www.chess.com/emboard?id="+this.boardId;
+  async makeUrl(){
+    let concat="//www.chess.com/emboard?id="+this.puzzle2render.code;
+    this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(concat);
   }
   goBack(){
-    this.lvs.goBack2Patterns();
+    this.lvs.goBack2Puzzles();
   }
 
 }

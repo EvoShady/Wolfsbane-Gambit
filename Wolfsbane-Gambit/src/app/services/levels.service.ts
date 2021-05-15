@@ -10,7 +10,8 @@ export class LevelsService {
   constructor(
     private db: AngularFirestore,
     private rt: Router,
-    private art: ActivatedRoute
+    private patternActiveRoute:ActivatedRoute,
+    private puzzleActiveRoute:ActivatedRoute
   ) { }
   
   
@@ -34,15 +35,15 @@ export class LevelsService {
   }
 
   async goToPatternLevel(param: string){
-    this.rt.navigate(['pattern-level',param],{relativeTo: this.art});
+    this.rt.navigate(['pattern-level',param],{relativeTo: this.patternActiveRoute});
   }
 
   async goToPuzzlesLevel(param: string){
-    this.rt.navigate(['puzzle-level',param],{relativeTo: this.art});
+    this.rt.navigate(['puzzle-level',param],{relativeTo: this.puzzleActiveRoute});
   }
   async renderPattern(){
     var id;
-    this.art.snapshot.children.map(el=>{
+    await this.patternActiveRoute.snapshot.children.map(el=>{
       id=el.paramMap.get('id');
     })
     return this.db
@@ -53,11 +54,11 @@ export class LevelsService {
 
   async renderPuzzle(){
     var id;
-    this.art.snapshot.children.map(el=>{
+    await this.puzzleActiveRoute.snapshot.children.map(el=>{
       id=el.paramMap.get('id');
     })
     return this.db
-    .collection('Puzzels')
+    .collection('Puzzles')
     .doc(id)
     .get()
   }
