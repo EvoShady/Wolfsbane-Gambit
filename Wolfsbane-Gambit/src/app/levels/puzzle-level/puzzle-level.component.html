@@ -2,15 +2,15 @@
     <head></head>
     <body>
         <div class="backgroundImage">
-            <h1 class="titleStyle"> {{ puzzleTitle }} </h1>
+            <p class="titleStyle"> {{ puzzle2render.title }} </p>
             <iframe
-                id={{boardId}}
+                id={{puzzle2render.code}}
                 allowtransparency="true"
                 frameborder="0"
                 style="width:50%;min-height: 425px;border:none;"
                 [src]="urlSafe">
             </iframe>
-            <script>window.addEventListener("message",e=>{e['data']&&"{{boardId}}"===e['data']['id']
+            <script>window.addEventListener("message",e=>{e['data']&&"{{puzzle2render.code}}"===e['data']['id']
                 &&document.getElementById(`${e['data']['id']}`)&&
                 (document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});
             </script>

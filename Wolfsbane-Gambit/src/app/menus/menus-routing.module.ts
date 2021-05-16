@@ -5,7 +5,7 @@ import { PuzzlesComponent } from './puzzles/puzzles.component';
 
 const routes: Routes = [
   {path: 'patterns', component: PatternsComponent, data: {animation: 'patterns'} },
-  {path: 'puzzles', component: PuzzlesComponent, data: {animation: 'puzzels'}}
+  {path: 'puzzles', component: PuzzlesComponent, data: {animation: 'puzzles'}}
 ];
 
 @NgModule({
