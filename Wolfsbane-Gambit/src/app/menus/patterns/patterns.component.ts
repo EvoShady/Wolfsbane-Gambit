@@ -15,6 +15,8 @@ export class PatternsComponent implements OnInit {
   split_activeLinks: boolean[]=new Array<boolean>();
   length:number;
   pageSize:number = 8;
+  pattUrl = '../../../assets/images/patt.png';
+  defaultUrl = '../../../assets/images/questionmark.png';
  
   constructor(private lvs: LevelsService) { }
   async populate(){
@@ -33,12 +35,6 @@ export class PatternsComponent implements OnInit {
     }
     while(limit>this.length){
         limit--;
-        let node={
-          imageUrl: "../../../assets/images/questionmark.png",
-          description: "",
-          tittle: "comming up"
-        }
-        this.list.push(node);
         this.activeLinks.push(false);
       }
   }

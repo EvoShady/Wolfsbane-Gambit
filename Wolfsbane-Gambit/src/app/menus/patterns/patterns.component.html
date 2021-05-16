@@ -13,8 +13,8 @@
         <mat-grid-tile>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
-                    <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[0]?.imageUrl + ')'">
+                    <div class="patternImage" *ngIf="split_activeLinks[0]; else photoUp"
+                    [style.background-image]="'url(' + pattUrl + ')'">
                     </div>
                 </div>
                 <div class="patternText" *ngIf="split_activeLinks[0]; else commingUp"> 
@@ -24,8 +24,8 @@
             <div class="leftPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
-                    <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[1]?.imageUrl + ')'">
+                    <div class="patternImage" *ngIf="split_activeLinks[1]; else photoUp"
+                    [style.background-image]="'url(' + pattUrl + ')'">
                     </div>
                 </div>
                 <div class="patternText" *ngIf="split_activeLinks[1]; else commingUp"> 
@@ -36,8 +36,8 @@
         <mat-grid-tile>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
-                    <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[2]?.imageUrl + ')'">
+                    <div class="patternImage" *ngIf="split_activeLinks[2]; else photoUp"
+                    [style.background-image]="'url(' + pattUrl + ')'">
                     </div>
                 </div>
                 <div class="patternText" *ngIf="split_activeLinks[2]; else commingUp"> 
@@ -47,8 +47,8 @@
             <div class="rightPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
-                    <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[3]?.imageUrl + ')'">
+                    <div class="patternImage" *ngIf="split_activeLinks[3]; else photoUp"
+                    [style.background-image]="'url(' + pattUrl + ')'">
                     </div>
                 </div>
                 <div class="patternText" *ngIf="split_activeLinks[3]; else commingUp"> 
@@ -60,8 +60,8 @@
         <mat-grid-tile>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
-                    <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[4]?.imageUrl + ')'">
+                    <div class="patternImage" *ngIf="split_activeLinks[4]; else photoUp"
+                    [style.background-image]="'url(' + pattUrl + ')'">
                     </div>
                 </div>
                 <div class="patternText" *ngIf="split_activeLinks[4]; else commingUp"> 
@@ -71,8 +71,8 @@
             <div class="leftPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
-                    <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[5]?.imageUrl + ')'">
+                    <div class="patternImage" *ngIf="split_activeLinks[5]; else photoUp"
+                    [style.background-image]="'url(' + pattUrl + ')'">
                     </div>
                 </div>
                 <div class="patternText" *ngIf="split_activeLinks[5]; else commingUp"> 
@@ -83,8 +83,8 @@
         <mat-grid-tile>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
-                    <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[6]?.imageUrl + ')'">
+                    <div class="patternImage" *ngIf="split_activeLinks[6]; else photoUp"
+                    [style.background-image]="'url(' + pattUrl + ')'">
                     </div>
                 </div>
                 <div class="patternText" *ngIf="split_activeLinks[6]; else commingUp"> 
@@ -94,8 +94,8 @@
             <div class="rightPadding"></div>
             <mat-grid-list cols="1" rowHeight="4:1">
                 <div class="whiteBgForLevels">
-                    <div class="patternImage"
-                    [style.background-image]="'url(' + split_list[7]?.imageUrl + ')'">
+                    <div class="patternImage" *ngIf="split_activeLinks[7]; else photoUp"
+                    [style.background-image]="'url(' + pattUrl + ')'">
                     </div>
                 </div>
                 <div class="patternText" *ngIf="split_activeLinks[7]; else commingUp"> 
@@ -125,6 +125,10 @@
 </div>
 <ng-template #commingUp>
     <div class="patternText">Coming Soon</div>
+</ng-template>
+<ng-template #photoUp>
+    <div div class="patternImage"
+    [style.background-image]="'url(' + defaultUrl + ')'"></div>
 </ng-template>
 </body>
 </html>
