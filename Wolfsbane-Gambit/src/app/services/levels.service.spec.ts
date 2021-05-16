@@ -6,10 +6,10 @@ import { LevelsService } from './levels.service';
 
 describe('LevelsService', () => {
   let service: LevelsService;
-  let db: AngularFirestore, rt: Router, art: ActivatedRoute
+  let db: AngularFirestore, rt: Router, patternActiveRoute:ActivatedRoute, puzzleActiveRoute:ActivatedRoute
 
   beforeEach(async () => {
-    service = new LevelsService(db,rt,art)
+    service = new LevelsService(db,rt,patternActiveRoute,puzzleActiveRoute)
   });
 
   it('should be created', () => {
