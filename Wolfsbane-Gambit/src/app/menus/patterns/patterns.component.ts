@@ -1,12 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { pattern } from 'src/app/models/pattern';
 import { LevelsService } from 'src/app/services/levels.service';
-
-
-
-
 
 @Component({
   selector: 'app-patterns',
@@ -20,8 +15,6 @@ export class PatternsComponent implements OnInit {
   split_activeLinks: boolean[]=new Array<boolean>();
   length:number;
   pageSize:number = 8;
-
-  
  
   constructor(private lvs: LevelsService) { }
   async populate(){
