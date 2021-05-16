@@ -34,7 +34,7 @@ export class PuzzlesComponent implements OnInit {
     while(limit>this.length){
         limit--;
         let node={
-          priview: "../../../assets/images/intro-image.jpg",
+          priview: "../../../assets/images/questionmark.png",
           code:"",
           title: "comming up"
         }

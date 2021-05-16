@@ -36,7 +36,7 @@ import { LevelsModule } from './levels/levels.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig,'wolfsbane-gambit'),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, 
     AngularFireAuthModule, 
     AngularFireStorageModule,

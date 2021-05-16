@@ -34,7 +34,7 @@ export class PatternsComponent implements OnInit {
     while(limit>this.length){
         limit--;
         let node={
-          imageUrl: "../../../assets/images/intro-image.jpg",
+          imageUrl: "../../../assets/images/questionmark.png",
           description: "",
           tittle: "comming up"
         }
