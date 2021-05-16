@@ -21,16 +21,13 @@ export class PuzzleLevelComponent implements OnInit {
     .then(val=>{
       val.subscribe(p=>{
         this.puzzle2render=p.data() as puzzle;
-      }) 
+        this.makeUrl();
+      })
     })
-    await this.makeUrl();
-   
-     
-
   }
 
-  async makeUrl(){
-    let concat="//www.chess.com/emboard?id="+this.puzzle2render.code;
+  makeUrl(){
+    let concat="//www.chess.com/emboard?id=" + this.puzzle2render.code;
     this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(concat);
   }
   goBack(){

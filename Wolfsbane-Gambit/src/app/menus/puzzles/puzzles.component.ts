@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { pattern } from 'src/app/models/pattern';
 import { puzzle } from 'src/app/models/puzzle';
 import { LevelsService } from 'src/app/services/levels.service';
 
@@ -63,7 +62,6 @@ export class PuzzlesComponent implements OnInit {
   async ngOnInit() {
     await this.populate();
     this.split_list=this.list.slice(0,8);
-    console.warn(this.split_list);
     this.split_activeLinks=this.activeLinks.slice(0,8);
   }
 
