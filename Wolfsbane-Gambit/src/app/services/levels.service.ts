@@ -10,7 +10,8 @@ export class LevelsService {
   constructor(
     private db: AngularFirestore,
     private rt: Router,
-    private art: ActivatedRoute
+    private patternActiveRoute:ActivatedRoute,
+    private puzzleActiveRoute:ActivatedRoute
   ) { }
   
   
@@ -26,13 +27,23 @@ export class LevelsService {
     .toPromise() 
   }
 
-  async goToPatternLevel(param: string){
-    this.rt.navigate(['pattern-level',param],{relativeTo: this.art});
+  async getPuzzles(){
+    return this.db
+    .collection('Puzzles')
+    .get()
+    .toPromise()
   }
 
+  async goToPatternLevel(param: string){
+    this.rt.navigate(['pattern-level',param],{relativeTo: this.patternActiveRoute});
+  }
+
+  async goToPuzzlesLevel(param: string){
+    this.rt.navigate(['puzzle-level',param],{relativeTo: this.puzzleActiveRoute});
+  }
   async renderPattern(){
     var id;
-    this.art.snapshot.children.map(el=>{
+    await this.patternActiveRoute.snapshot.children.map(el=>{
       id=el.paramMap.get('id');
     })
     return this.db
@@ -41,10 +52,24 @@ export class LevelsService {
     .get()
   }
 
+  async renderPuzzle(){
+    var id;
+    await this.puzzleActiveRoute.snapshot.children.map(el=>{
+      id=el.paramMap.get('id');
+    })
+    return this.db
+    .collection('Puzzles')
+    .doc(id)
+    .get()
+  }
+
   goBack2Patterns(){
     this.rt.navigate(['patterns']);
   }
-
+  
+  goBack2Puzzles(){
+    this.rt.navigate(['puzzles'])
+  }
   goBack2Menu(){
     this.rt.navigate(['mainMenu']);
   }

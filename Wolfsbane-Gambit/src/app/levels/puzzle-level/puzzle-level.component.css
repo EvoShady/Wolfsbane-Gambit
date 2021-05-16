@@ -1,0 +1,30 @@
+.backgroundImage{
+    background-image: url("../../../assets/images/main_theme.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.titleStyle{
+    z-index: 1;
+  
+    color: rgb(255, 255, 255);
+    font-family: "Harrington";
+    font-weight: bold;
+    font-size: 85px;
+    -webkit-text-stroke: 3px black;
+}
+
+.backButtonStyle{
+    z-index: 1;
+  
+    color: rgb(255, 255, 255);
+    font-family: "Harrington";
+    font-weight: bold;
+    font-size: 30px;
+    -webkit-text-stroke: 1px black;
+  
+    margin-right: 85%;
+    margin-top: 8%;
+}

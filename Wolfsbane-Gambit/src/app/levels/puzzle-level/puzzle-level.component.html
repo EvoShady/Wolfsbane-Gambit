@@ -1,1 +1,20 @@
-<p>puzzle-level works!</p>
+<html>
+    <head></head>
+    <body>
+        <div class="backgroundImage">
+            <p class="titleStyle"> {{ puzzle2render.title }} </p>
+            <iframe
+                id={{puzzle2render.code}}
+                allowtransparency="true"
+                frameborder="0"
+                style="width:50%;min-height: 425px;border:none;"
+                [src]="urlSafe">
+            </iframe>
+            <script>window.addEventListener("message",e=>{e['data']&&"{{puzzle2render.code}}"===e['data']['id']
+                &&document.getElementById(`${e['data']['id']}`)&&
+                (document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});
+            </script>
+            <button mat-button class="backButtonStyle" (click)="goBack()"><< Back</button>
+        </div>
+    </body>
+</html>

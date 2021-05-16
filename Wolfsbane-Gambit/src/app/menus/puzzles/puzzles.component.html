@@ -1,1 +1,130 @@
-<p>puzzles works!</p>
+<html>
+<head></head>
+<body>
+
+<div class="backgroundImageTest">
+    <mat-grid-list cols="3" rowHeight="4:1">
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile><h1 class="puzzleTitle">Checkmate Puzzles</h1></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+    </mat-grid-list>
+    <div class="bottomPadding"></div>
+    <mat-grid-list cols="2" rowHeight="4:1">
+        <mat-grid-tile>
+            <mat-grid-list cols="1" rowHeight="4:1">
+                <div class="whiteBgForLevels">
+                    <div class="puzzleImage"
+                    [style.background-image]="'url(' + split_list[0]?.priview + ')'">
+                    </div>
+                </div>
+                <div class="puzzleText" *ngIf="split_activeLinks[0]; else commingUp"> 
+                    <a (click)="goToPuzzleLevel(0)"> {{ split_list[0]?.title }}</a>
+                </div>
+            </mat-grid-list>
+            <div class="leftPadding"></div>
+            <mat-grid-list cols="1" rowHeight="4:1">
+                <div class="whiteBgForLevels">
+                    <div class="puzzleImage"
+                    [style.background-image]="'url(' + split_list[1]?.priview + ')'">
+                    </div>
+                </div>
+                <div class="puzzleText" *ngIf="split_activeLinks[1]; else commingUp"> 
+                    <a (click)="goToPuzzleLevel(1)"> {{ split_list[1]?.title }}</a>
+                </div>
+            </mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-grid-list cols="1" rowHeight="4:1">
+                <div class="whiteBgForLevels">
+                    <div class="puzzleImage"
+                    [style.background-image]="'url(' + split_list[2]?.priview + ')'">
+                    </div>
+                </div>
+                <div class="puzzleText" *ngIf="split_activeLinks[2]; else commingUp"> 
+                    <a (click)="goToPuzzleLevel(2)"> {{ split_list[2]?.title }}</a>
+                </div>
+            </mat-grid-list>
+            <div class="rightPadding"></div>
+            <mat-grid-list cols="1" rowHeight="4:1">
+                <div class="whiteBgForLevels">
+                    <div class="puzzleImage"
+                    [style.background-image]="'url(' + split_list[3]?.priview + ')'">
+                    </div>
+                </div>
+                <div class="puzzleText" *ngIf="split_activeLinks[3]; else commingUp"> 
+                    <a (click)="goToPuzzleLevel(3)"> {{ split_list[3]?.title }}</a>
+                </div>
+            </mat-grid-list>
+        </mat-grid-tile>
+        <div class="bottomPadding"></div>
+        <mat-grid-tile>
+            <mat-grid-list cols="1" rowHeight="4:1">
+                <div class="whiteBgForLevels">
+                    <div class="puzzleImage"
+                    [style.background-image]="'url(' + split_list[4]?.priview + ')'">
+                    </div>
+                </div>
+                <div class="puzzleText" *ngIf="split_activeLinks[4]; else commingUp"> 
+                    <a (click)="goToPuzzleLevel(4)"> {{ split_list[4]?.title }}</a>
+                </div>
+            </mat-grid-list>
+            <div class="leftPadding"></div>
+            <mat-grid-list cols="1" rowHeight="4:1">
+                <div class="whiteBgForLevels">
+                    <div class="puzzleImage"
+                    [style.background-image]="'url(' + split_list[5]?.priview + ')'">
+                    </div>
+                </div>
+                <div class="puzzleText" *ngIf="split_activeLinks[5]; else commingUp"> 
+                    <a (click)="goToPuzzleLevel(5)"> {{ split_list[5]?.title }}</a>
+                </div>
+            </mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-grid-list cols="1" rowHeight="4:1">
+                <div class="whiteBgForLevels">
+                    <div class="puzzleImage"
+                    [style.background-image]="'url(' + split_list[6]?.priview + ')'">
+                    </div>
+                </div>
+                <div class="puzzleText" *ngIf="split_activeLinks[6]; else commingUp"> 
+                    <a (click)="goToPuzzleLevel(6)"> {{ split_list[6]?.title }}</a>
+                </div>
+            </mat-grid-list>
+            <div class="rightPadding"></div>
+            <mat-grid-list cols="1" rowHeight="4:1">
+                <div class="whiteBgForLevels">
+                    <div class="puzzleImage"
+                    [style.background-image]="'url(' + split_list[7]?.priview + ')'">
+                    </div>
+                </div>
+                <div class="puzzleText" *ngIf="split_activeLinks[7]; else commingUp"> 
+                    <a (click)="goToPuzzleLevel(7)"> {{ split_list[7]?.title }}</a>
+                </div>
+            </mat-grid-list>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="3" rowHeight="3:1">
+        <mat-grid-tile>
+            <button mat-button class="backButtonStyle" (click)="goBack()"><< Back</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="whiteBgForBottomMenu">
+                <h1 class="pageText">Page</h1>
+                <mat-paginator
+                    [length]="length"
+                    [pageSize]="pageSize"
+                    (page)="populatePage($event)"
+                    [hidePageSize]="true"
+                    [showFirstLastButtons]="true">
+                </mat-paginator>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+    </mat-grid-list>
+</div>
+<ng-template #commingUp>
+    <div class="puzzleText">Coming Soon</div>
+</ng-template>
+</body>
+</html>
