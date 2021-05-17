@@ -46,7 +46,7 @@
   color: rgb(255, 255, 255);
   font-family: "Harrington";
   font-weight: bold;
-  font-size: 20px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -64,6 +64,9 @@
   min-height: 160px;
   min-width: 160px;
   border-radius: 25px;
+
+  max-height: 160px;
+  max-width: 160px;
 
   display: flex;
   justify-content: center;
